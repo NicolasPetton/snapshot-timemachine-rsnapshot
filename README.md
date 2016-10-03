@@ -2,16 +2,12 @@
 
 ## Summary
 
-rsnapshot backend for snapshot-timemachine
+rsnapshot backend for [snapshot-timemachine][https://github.com/mrBliss/snapshot-timemachine].
 
-## Installing
+## Setup
 
-You will need Emacs 24+, `make` and [Cask](https://github.com/cask/cask) to
-build the project.
-
-    cd snapshot-timemachine-rsnapshot
-    make && make install
-
+Customize `snapshot-timemachine-rsnapshot-backup-dir` and
+`snapshot-timemachine-rsnapshot-backup-name` to matche your rsnapshot settings.
 
 ## Contributing
 
