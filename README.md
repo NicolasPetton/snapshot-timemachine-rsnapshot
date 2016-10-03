@@ -7,7 +7,7 @@ rsnapshot backend for [snapshot-timemachine](https://github.com/mrBliss/snapshot
 ## Setup
 
 Customize `snapshot-timemachine-rsnapshot-backup-dir` and
-`snapshot-timemachine-rsnapshot-backup-name` to matche your rsnapshot settings.
+`snapshot-timemachine-rsnapshot-backup-name` to match your rsnapshot settings.
 
 ## Contributing
 
