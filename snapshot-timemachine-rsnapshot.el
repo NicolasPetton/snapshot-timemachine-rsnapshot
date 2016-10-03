@@ -5,7 +5,7 @@
 ;; Author: Nicolas Petton <nicolas@petton.fr>
 ;; Version: 0.1
 ;; Package: snapshot-timemachine-rsnapshot
-;; Package-Requires: ((rsnapshot-timemachine "20160222.132"))
+;; Package-Requires: ((rsnapshot-timemachine "20160222.132") (seq "2.16"))
 
 ;; This file is not part of GNU Emacs.
 
@@ -29,8 +29,39 @@
 ;;; Code:
 
 (require 'snapshot-timemachine)
+(require 'seq)
 
+(defgroup snapshot-timemachine-rsnapshot nil
+  "rsnapshot backend for snapshot-timemachine.")
 
+(defcustom snapshot-timemachine-rsnapshot-backup-dir "/backup"
+  "Path to the rsnapshot backup directory."
+  :type 'string
+  :group 'snapshot-timemachine-rsnapshot)
+
+(defcustom snapshot-timemachine-rsnapshot-backup-name "localhost"
+  "Name of the backup location as specified in the rsnapshot config file."
+  :type 'string
+  :group 'snapshot-timemachine-rsnapshot)
+
+(defun snapshot-timemachine-rsnapshot-finder (file)
+  "Find snapshots of FILE in rsnapshot backups."
+  (let* ((file (expand-file-name file))
+         (backup-dirs (seq-filter #'file-directory-p
+                                  (directory-files snapshot-timemachine-rsnapshot-backup-dir t)))
+         (backup-files (seq-filter (lambda (spec)
+                                     (file-exists-p (cdr spec)))
+                                   (seq-map (lambda (dir)
+                                              (cons dir (concat dir "/" snapshot-timemachine-rsnapshot-backup-name "/" file)))
+                                            backup-dirs))))
+    (seq-map-indexed (lambda (backup-file index)
+               (make-snapshot :id index
+                              :name (car backup-file)
+                              :file (cdr backup-file)
+                              :date (nth 5 (file-attributes (cdr backup-file)))))
+             backup-files)))
+
+(setq snapshot-timemachine-snapshot-finder #'snapshot-timemachine-rsnapshot-finder)
 
 (provide 'snapshot-timemachine-rsnapshot)
 ;;; snapshot-timemachine-rsnapshot.el ends here
