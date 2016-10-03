@@ -2,7 +2,7 @@
 
 ## Summary
 
-rsnapshot backend for [snapshot-timemachine][https://github.com/mrBliss/snapshot-timemachine].
+rsnapshot backend for [snapshot-timemachine](https://github.com/mrBliss/snapshot-timemachine).
 
 ## Setup
 
