@@ -3,7 +3,7 @@
 ;; Copyright (C) 2016 Nicolas Petton
 
 ;; Author: Nicolas Petton <nicolas@petton.fr>
-;; Version: 0.1
+;; Version: 0.2
 ;; Package: snapshot-timemachine-rsnapshot
 ;; Package-Requires: ((snapshot-timemachine "20160222.132") (seq "2.16"))
 
