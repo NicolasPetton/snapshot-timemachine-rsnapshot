@@ -5,7 +5,7 @@
 ;; Author: Nicolas Petton <nicolas@petton.fr>
 ;; Version: 0.1
 ;; Package: snapshot-timemachine-rsnapshot
-;; Package-Requires: ((rsnapshot-timemachine "20160222.132") (seq "2.16"))
+;; Package-Requires: ((snapshot-timemachine "20160222.132") (seq "2.16"))
 
 ;; This file is not part of GNU Emacs.
 
