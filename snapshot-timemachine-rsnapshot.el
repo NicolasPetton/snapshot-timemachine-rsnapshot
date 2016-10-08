@@ -32,7 +32,8 @@
 (require 'seq)
 
 (defgroup snapshot-timemachine-rsnapshot nil
-  "rsnapshot backend for snapshot-timemachine.")
+  "rsnapshot backend for snapshot-timemachine."
+  :group 'snapshot-timemachine)
 
 (defcustom snapshot-timemachine-rsnapshot-backup-dir "/backup"
   "Path to the rsnapshot backup directory."
