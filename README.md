@@ -4,6 +4,8 @@
 
 rsnapshot backend for [snapshot-timemachine](https://github.com/mrBliss/snapshot-timemachine).
 
+This repository is mirrored with [petton.fr/git/nico/snapshot-timemachine-rsnapshot](https://petton.fr/git/nico/snapshot-timemachine-rsnapshot).
+
 ## Setup
 
 Customize `snapshot-timemachine-rsnapshot-backup-dir` and
