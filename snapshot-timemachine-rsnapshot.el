@@ -5,7 +5,7 @@
 ;; Author: Nicolas Petton <nicolas@petton.fr>
 ;; Version: 0.2
 ;; Package: snapshot-timemachine-rsnapshot
-;; Package-Requires: ((snapshot-timemachine "20160222.132") (seq "2.16"))
+;; Package-Requires: ((snapshot-timemachine "20160222.132") (seq "2.19"))
 
 ;; This file is not part of GNU Emacs.
 
@@ -29,7 +29,10 @@
 ;;; Code:
 
 (require 'snapshot-timemachine)
+
 (require 'seq)
+(unless (fboundp 'seq-map-indexed)
+  (require 'seq-25))
 
 (defgroup snapshot-timemachine-rsnapshot nil
   "rsnapshot backend for snapshot-timemachine."
